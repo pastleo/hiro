@@ -19,7 +19,8 @@ task compile: :dependencies do
   clear_build
 
   work_in(MRUBY_DIR) do
-    sh "MRUBY_CONFIG=#{MRUBY_CONFIG} rake all"
+    #sh "MRUBY_CONFIG=#{MRUBY_CONFIG} rake all"
+    system({"MRUBY_CONFIG" => MRUBY_CONFIG}, 'rake all')
   end
 
   FileUtils.mkdir_p BUILD_DIR
